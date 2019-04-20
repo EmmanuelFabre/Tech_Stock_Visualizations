@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tech Stock Visualizations</title>
+
+  <!-- ol' Bootstrap's bootstraps -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Lightbox Wizardry -->
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  <!-- Stylesheet Include -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  
+  <!-- D3 Include -->
+  <script src="//d3plus.org/js/d3.js"></script>
+  <script src="//d3plus.org/js/d3plus.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  
+  <!--D3 Color Scale -->
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+  <!-- Plotly Include -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class=" border-right" id="sidebar-wrapper" style="background: #fff;">
+      <div class="bg-primary sidebar-heading" style="color: #fff;">Project Dashboard</div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action" data-fancybox data-type="iframe" data-src="aaViz.html" href="javascript:;">
+          <span data-feather="bar-chart-2" style="color: blue;"></span>
+          Stock Comparison</a>
+        <a href="#" class="list-group-item list-group-item-action" data-fancybox data-type="iframe" data-src="eViz.html" href="javascript:;">
+          <span data-feather="bar-chart-2" style="color: orange;"></span>
+          Stock Volume vs Year</a>
+        <a href="#" class="list-group-item list-group-item-action" data-fancybox data-type="iframe" data-src="nicViz.html" href="javascript:;">
+          <span data-feather="bar-chart-2" style="color: red;"></span>
+          Closing Price Over Time</a>
+        <a href="#" class="list-group-item list-group-item-action" data-fancybox data-type="iframe" data-src="aViz.html" href="javascript:;">
+          <span data-feather="bar-chart-2" style="color: green;"></span>
+          Price Change Over Time</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+        <button class="btn btn-primary" id="menu-toggle" style="padding: 7px 0px 7px 0px; width: 40px;"><i class="fas fa-exchange-alt"></i></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>    
+      </nav>
+      <!-- /Navbar -->
+      
+      <!-- Main Dashboard w/ Visualizations -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 style="margin-top:20px;">Tech Stock Visualizations</h4>
+            <p>From IPO through 2018</p>
+              <div class="jumbotron shadow-sm p-3 mb-5 bg-white rounded" style="margin-top: 20px; margin-bottom: 25px !important; padding-right: 10px; background: #fff;">
+                <div id="plot" style="margin-right:10px;"></div>
+                <p>Enter two stock tickers below to compare the stocks against each other.</p>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <span data-feather="activity" style="color: blue;"></span>&nbsp;
+                    <label for="stockInput">Stock Comparison &nbsp;</label>
+                    <input type="text" class="form-control" id="stockInput" placeholder="Enter First Stock Ticker">&nbsp;
+                    <input type="text" class="form-control" id="stockInput2" placeholder="Enter Second Stock Ticker">&nbsp;
+                  </div>
+                <button id="submit" type="submit" style="padding-left:10px !important;" class="btn cur-p btn-danger">Plot Stock</button>
+                </form>
+                <script src="js/aaronplot.js"></script>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="classWithPad shadow-sm p-3 mb-5 bg-white rounded">
+                    <a data-fancybox data-type="iframe" data-src="eViz.html" href="javascript:;">
+                    <img src="img/emViz.jpg"/>
+                    </a>
+                    <h2><span data-feather="bar-chart-2" style="color: orange;"></span>
+                    Average Stock Volume
+                    </h2>
+                    <p>The average stock volume of tech stocks from IPO to 2019. Click the image above or the link below for a larger visualization.</p>
+                    <a data-fancybox data-type="iframe" data-src="eViz.html" href="javascript:;" class="btn btn-primary">
+                    Open Visualization
+                    </a>                          
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="classWithPad shadow-sm p-3 mb-5 bg-white rounded">                        
+                    <a data-fancybox data-type="iframe" data-src="nicViz.html" href="javascript:;">
+                    <img src="img/viz2.jpg"/>
+                    </a>
+                    <h2><span data-feather="bar-chart-2" style="color: red;"></span>
+                    Closing Price Over Time
+                    </h2>
+                    <p>The closing price of tech stocks over time, from IPO to 2019. Click the image above or the link below for a larger visualization.</p>
+                    <a data-fancybox data-type="iframe" data-src="nicViz.html" href="javascript:;" class="btn btn-primary">
+                    Open Visualization
+                    </a>                        
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="classWithPad shadow-sm p-3 mb-5 bg-white rounded">                        
+                    <a data-fancybox data-type="iframe" data-src="aViz.html" href="javascript:;">
+                    <img src="img/viz3.jpg"/>
+                    </a>
+                    <h2><span data-feather="bar-chart-2" style="color: green;"></span>
+                    Change Over Time
+                    </h2>
+                    <p>Percentage of change in closing price over time, from IPO to 2019. Click the image above or the link below for a larger visualization.</p>
+                    <a data-fancybox data-type="iframe" data-src="aViz.html" href="javascript:;" class="btn btn-primary">
+                    Open Visualization
+                    </a>                        
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->   
+  </div>
+  <!-- /#wrapper -->  
+
+  <!-- Code Snippits to make sh!t work... -->
+      
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <script>
+    feather.replace()
+  </script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+</html>
