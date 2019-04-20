@@ -1,0 +1,73 @@
+body {
+  overflow-x: hidden;
+  background: #f0f0f0!important;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.fancybox-slide--iframe .fancybox-content {
+  width  : 800px;
+  height : 800px;
+  max-width  : 80%;
+  max-height : 100%;
+  margin: 0;
+}
+
+.navbar.navbar-2 .navbar-toggler-icon {
+background-image: url(https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff);
+}
+
+.axis path,
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.classWithPad { margin:5px; padding:5px; }
+
+.aisha {
+  position:absolute;
+  background-color:lightgray;
+  padding:5px;
+}

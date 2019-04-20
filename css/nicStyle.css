@@ -1,0 +1,13 @@
+body{
+    margin: 0px;
+    overflow: hidden; 
+}
+
+rect {
+    fill: none
+} 
+
+text {
+    font-size: 2em; 
+    font-family: sans-serif;
+}
